@@ -21,22 +21,29 @@ public:
 
 	//Add Camera
 	UPROPERTY(VisibleAnywhere, Category = Camera)
-		class UCameraComponent* CameraComponent;
+	class UCameraComponent* CameraComponent;
 
+	//Add Capsule Component
+	
+	class UCapsuleComponent* Capsule;
+	float playerRadius = 55.f;
+	float playerHeight = 96.f;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
 
 	void MoveForward(float val);
 	void MoveRight(float val);
 
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+
 	UFUNCTION()
 	void SimpleAction();
-
+	void ToggleCrouch();
 };
